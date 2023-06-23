@@ -14,9 +14,4 @@ inputs:
 
 runs:
   using: 'docker'
-  image: './Dockerfile'
-  steps:
-    - name: Build Docker image
-      run: docker build -t n7-action .
-    - name: Run Docker container
-      run: docker run n7-action
+  image: 'Dockerfile'
