@@ -1,0 +1,17 @@
+name: 'PR Manager'
+description: 'фыв'
+
+inputs:
+  slack_bot_auth_token:
+    description: 'The Slack bot auth token'
+    required: true
+  slack_channel_id:
+    description: 'The Slack channel id'
+    required: true
+  github_token:
+    description: 'The GitHub token for accessing the repository'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
