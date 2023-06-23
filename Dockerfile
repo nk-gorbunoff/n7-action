@@ -1,8 +1,9 @@
 # Указываем базовый образ
 FROM swift:latest
 
-# Копируем файлы проекта в контейнер
-COPY . /app
+# Копируем файлы Package.swift и исходный код проекта в контейнер
+COPY Package.swift /app/
+COPY Sources/PRManager /app/Sources/PRManager
 
 # Устанавливаем рабочую директорию
 WORKDIR /app

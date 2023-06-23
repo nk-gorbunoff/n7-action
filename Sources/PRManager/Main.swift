@@ -12,13 +12,12 @@ public struct Main {
     typealias Environment = [String: String]
     
     public static func main() {
-        let environment: Environment = ProcessInfo.processInfo.environment
+//        let environment: Environment = ProcessInfo.processInfo.environment
 //        guard let slackChannelId: String = environment["INPUT_SLACK_CHANNEL_ID"],
 //              let slackBotAuthToken: String = environment["INPUT_SLACK_BOT_AUTH_TOKEN"] else {
 //            print("НЕ МОГУ ПОЛУЧИТЬ ВХОДНЫЕ ДАННЫЕ")
 //            return
 //        }
-        print(environment)
         print("ОТПРАВИЛИ СООБЩЕНИЕ В СЛУК")
     }
     
