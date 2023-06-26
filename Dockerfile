@@ -2,13 +2,11 @@
 FROM swift:latest
 
 # Копируем файлы проекта в контейнер
-COPY src /Autobots
+COPY src /app
 
-# Устанавливаем рабочую директорию
-WORKDIR /Autobots
+# Устанавливаем зависимости и выполняем сборку проекта
+RUN cd /app && \
+    swift build
 
-# Собираем проект
-RUN swift build -c release --disable-sandbox
-
-# Запускаем приложение
-CMD [".build/release/Autobots"]
+# Определяем команду по умолчанию для запуска в контейнере
+CMD ["swift", "run", "--package-path", "/app"]
