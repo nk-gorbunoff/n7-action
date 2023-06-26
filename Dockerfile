@@ -8,7 +8,7 @@ COPY src /Autobots
 WORKDIR /Autobots
 
 # Собираем проект
-RUN swift build -c release
+RUN swift build -c release --disable-sandbox
 
 # Запускаем приложение
 CMD [".build/release/Autobots"]
