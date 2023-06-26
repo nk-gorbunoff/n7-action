@@ -3,17 +3,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "PRManager",
-    platforms: [
-        .macOS(.v10_15)
-    ],
+    name: "Autobots",
     products: [
-        .executable(name: "PRManager", targets: ["PRManager"])
+        .executable(name: "Autobots", targets: ["Autobots"])
     ],
     dependencies: [],
     targets: [
         .executableTarget(
-            name: "PRManager",
+            name: "Autobots",
             dependencies: []
         )
     ]

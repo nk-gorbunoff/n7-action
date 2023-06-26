@@ -1,18 +1,14 @@
-# Указываем базовый образ
+# Используем образ Swift
 FROM swift:latest
 
-# Копируем файлы Package.swift и исходный код проекта в контейнер
-COPY Package.swift /app/
-COPY Sources/PRManager /app/Sources/PRManager
+# Копируем файлы проекта в контейнер
+COPY src /Autobots
 
 # Устанавливаем рабочую директорию
-WORKDIR /app
+WORKDIR /Autobots
 
-# Устанавливаем зависимости проекта с помощью Swift Package Manager
-RUN swift package resolve
+# Собираем проект
+RUN swift build -c release
 
-# Компилируем проект
-RUN swift build
-
-# Указываем команду, которая будет запущена при запуске контейнера
-CMD [".build/debug/PRManager"]
+# Запускаем приложение
+CMD [".build/release/Autobots"]
