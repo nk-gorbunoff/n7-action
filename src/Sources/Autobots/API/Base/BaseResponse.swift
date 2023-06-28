@@ -10,7 +10,7 @@ import Foundation
 import FoundationNetworking
 #endif
 
-class BaseRequest {
+final class BaseRequest {
     typealias Headers = [String: String]
     typealias Parameters = [String: Any]
     // MARK: - Properties

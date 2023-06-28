@@ -10,12 +10,12 @@ import Foundation
 @main
 struct Main {
     static func main() async {
-        let logger: Logger = .init()
+        let logger: Logger = .init(object: "MAIN")
         guard let inputData: InputData = .init(environment: ProcessInfo.processInfo.environment) else {
             logger.failure("не удалось получить данные")
             return
         }
-                
-        await SlackPRNotificationWorker(logger: logger).work(with: inputData)        
+
+        await SlackPRNotificationWorker().work(with: inputData)
     }
 }

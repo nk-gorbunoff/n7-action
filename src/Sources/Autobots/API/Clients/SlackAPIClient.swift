@@ -7,12 +7,12 @@
 
 import Foundation
 
-public class SlackAPIClient: BaseAPIClient {
+final class SlackAPIClient: BaseAPIClient {
     // MARK: - Properties
     private let baseURLString: String
     private let token: String
     // MARK: - Init
-    public init(baseURLString: String = "https://slack.com",
+    init(baseURLString: String = "https://slack.com",
                 token: String,
                 logger: Logger) {
         self.baseURLString = baseURLString
@@ -20,7 +20,7 @@ public class SlackAPIClient: BaseAPIClient {
         super.init(logger: logger)
     }
     
-    public func postMessage(_ message: String, toChannel channelId: String) async throws {
+   func postMessage(_ message: String, toChannel channelId: String) async throws {
         let request: BaseRequest = BaseRequest(
             host: baseURLString,
             path: "/api/chat.postMessage",
@@ -34,7 +34,6 @@ public class SlackAPIClient: BaseAPIClient {
                 .contentType
             ]
         )
-        
-        try await performDataTask(for: request.asURLRequest())
+       try await perform(request)
     }
 }

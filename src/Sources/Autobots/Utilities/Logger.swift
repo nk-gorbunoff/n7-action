@@ -7,18 +7,54 @@
 
 import Foundation
 
-public final class Logger {
+struct Logger {
+    // MARK: - Properties
+    private let object: String
     
-    public func failure(_ object: Any) {
-        log(object: object)
+    // MARK: - Init
+    init(object: String) {
+        self.object = object
     }
     
-    public func info(_ object: Any) {
-        log(object: object)
+    // MARK: - Public methods
+    func failure(_ message: String, level: LogLevel = .main) {
+        log(message: message, kind: .error, level: level)
     }
     
+    func info(_ message: String, level: LogLevel = .main) {
+        log(message: message, kind: .info, level: level)
+    }
     
-    private func log(object: Any) {
-        print("\(object)")
+    func success(_ message: String, level: LogLevel = .main) {
+        log(message: message, kind: .success, level: level)
+    }
+    
+    // MARK: - Private methods
+    private func log(message: String, kind: Kind, level: LogLevel) {
+        let prefix: String
+        switch kind {
+        case .error:  prefix = "🔴[\(object)]"
+        case .info: prefix = "🔵[\(object)]"
+        case .success: prefix = "🟢[\(object)]"
+        }
+        let formattedMessage: String = message.replacingOccurrences(of: "\n", with: "\n\(prefix)")
+        print(prefix + " " + formattedMessage)
+    }
+}
+
+// MARK: - Kind
+extension Logger {
+    enum Kind {
+        case error
+        case info
+        case success
+    }
+}
+
+// MARK: - LogLevel
+extension Logger {
+    public enum LogLevel {
+        case main
+        case verbose
     }
 }

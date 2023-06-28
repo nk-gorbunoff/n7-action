@@ -10,20 +10,14 @@ import Foundation
 import FoundationNetworking
 #endif
 
-/// Defines the possible errors
-public enum URLSessionAsyncErrors: Error {
-    case invalidUrlResponse, missingResponseData
-}
-
 /// An extension that provides async support for fetching a URL
 ///
 /// Needed because the Linux version of Swift does not support async URLSession yet.
-public extension URLSession {
- 
+extension URLSession {
     /// A reimplementation of `URLSession.shared.data(from: url)` required for Linux
     ///
-    /// - Parameter url: The URL for which to load data.
-    /// - Returns: Data and response.
+    /// - Parameter request: The URLRequest for which to load data.
+    /// - Returns: Data and URLResponse.
     ///
     /// - Usage:
     ///
@@ -36,11 +30,11 @@ public extension URLSession {
                     return
                 }
                 guard let response = response as? HTTPURLResponse else {
-                    continuation.resume(throwing: URLSessionAsyncErrors.invalidUrlResponse)
+                    continuation.resume(throwing: APIError.invalidURLResponse)
                     return
                 }
                 guard let data = data else {
-                    continuation.resume(throwing: URLSessionAsyncErrors.missingResponseData)
+                    continuation.resume(throwing: APIError.missingResponseData)
                     return
                 }
                 continuation.resume(returning: (data, response))

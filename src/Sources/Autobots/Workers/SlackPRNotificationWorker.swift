@@ -9,8 +9,8 @@ import Foundation
 
 public class Worker {
     var logger: Logger
-    init(logger: Logger) {
-        self.logger = logger
+    init() {
+        self.logger = .init(object: "\(Self.self)")
     }
 }
 
@@ -18,10 +18,10 @@ public final class SlackPRNotificationWorker: Worker {
     func work(with inputData: InputData) async {
         let slackAPIClient: SlackAPIClient = .init(token: inputData.slackBotAuthToken, logger: logger)
         do {
-            try await slackAPIClient.postMessage("WAZAAAAP", toChannel: inputData.slackChannelId)
-            logger.info("СООБЩЕНИЕ УСПЕШНО ОТПРАВЛЕНО")
+            try await slackAPIClient.postMessage("WAZZAP", toChannel: inputData.slackChannelId)
+            logger.success("Post message complete")
         } catch {
-            logger.failure("НЕ УДАЛОСЬ ОТПРАВИТЬ СООБЩЕНИЕ: \(error)")
+            logger.failure("Post message failed")
         }
     }
 }

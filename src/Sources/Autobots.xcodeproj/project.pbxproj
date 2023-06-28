@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4B16870E2A4C352F0020F9F3 /* URLSession+LinuxOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B16870D2A4C352F0020F9F3 /* URLSession+LinuxOS.swift */; };
 		4B1687102A4C3ACB0020F9F3 /* InputData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B16870F2A4C3ACB0020F9F3 /* InputData.swift */; };
+		4B1687152A4C44C20020F9F3 /* TriggerEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1687142A4C44C20020F9F3 /* TriggerEvent.swift */; };
+		4B1687182A4C6E330020F9F3 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1687172A4C6E330020F9F3 /* APIError.swift */; };
 		4B6660A62A4B1DC900D14537 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6660A52A4B1DC900D14537 /* BaseResponse.swift */; };
 		4B8AC7122A4ADD94003C8A1E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC7112A4ADD94003C8A1E /* Logger.swift */; };
 		4B8AC7142A4AE241003C8A1E /* BaseAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC7132A4AE241003C8A1E /* BaseAPIClient.swift */; };
@@ -32,6 +34,8 @@
 /* Begin PBXFileReference section */
 		4B16870D2A4C352F0020F9F3 /* URLSession+LinuxOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+LinuxOS.swift"; sourceTree = "<group>"; };
 		4B16870F2A4C3ACB0020F9F3 /* InputData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputData.swift; sourceTree = "<group>"; };
+		4B1687142A4C44C20020F9F3 /* TriggerEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerEvent.swift; sourceTree = "<group>"; };
+		4B1687172A4C6E330020F9F3 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		4B6660A52A4B1DC900D14537 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		4B8AC7112A4ADD94003C8A1E /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		4B8AC7132A4AE241003C8A1E /* BaseAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPIClient.swift; sourceTree = "<group>"; };
@@ -52,28 +56,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4B1687112A4C3ACF0020F9F3 /* Models */ = {
+		4B1687122A4C42E10020F9F3 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4B1687132A4C42F40020F9F3 /* Base */,
+				4B8AC7152A4AE28B003C8A1E /* Clients */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		4B1687132A4C42F40020F9F3 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4B1687172A4C6E330020F9F3 /* APIError.swift */,
+				4B8AC7132A4AE241003C8A1E /* BaseAPIClient.swift */,
+				4B6660A52A4B1DC900D14537 /* BaseResponse.swift */,
+				4B16870D2A4C352F0020F9F3 /* URLSession+LinuxOS.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		4B1687162A4C44C90020F9F3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				4B16870F2A4C3ACB0020F9F3 /* InputData.swift */,
+				4B1687142A4C44C20020F9F3 /* TriggerEvent.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		4B8AC7152A4AE28B003C8A1E /* API */ = {
+		4B8AC7152A4AE28B003C8A1E /* Clients */ = {
 			isa = PBXGroup;
 			children = (
-				4B8AC7132A4AE241003C8A1E /* BaseAPIClient.swift */,
-				4B6660A52A4B1DC900D14537 /* BaseResponse.swift */,
 				4B8AC7172A4AE2AD003C8A1E /* SlackAPIClient.swift */,
-				4B16870D2A4C352F0020F9F3 /* URLSession+LinuxOS.swift */,
 			);
-			path = API;
+			path = Clients;
 			sourceTree = "<group>";
 		};
 		4B8AC7162A4AE292003C8A1E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4B1687162A4C44C90020F9F3 /* Models */,
 				4B8AC7112A4ADD94003C8A1E /* Logger.swift */,
 			);
 			path = Utilities;
@@ -108,8 +131,7 @@
 			children = (
 				4BF9DCE22A4994170033CCD8 /* Main.swift */,
 				4B8AC7192A4AF98A003C8A1E /* Workers */,
-				4B8AC7152A4AE28B003C8A1E /* API */,
-				4B1687112A4C3ACF0020F9F3 /* Models */,
+				4B1687122A4C42E10020F9F3 /* API */,
 				4B8AC7162A4AE292003C8A1E /* Utilities */,
 			);
 			path = Autobots;
@@ -179,6 +201,8 @@
 			files = (
 				4B8AC71B2A4AF9CA003C8A1E /* SlackPRNotificationWorker.swift in Sources */,
 				4BF9DCE32A4994170033CCD8 /* Main.swift in Sources */,
+				4B1687152A4C44C20020F9F3 /* TriggerEvent.swift in Sources */,
+				4B1687182A4C6E330020F9F3 /* APIError.swift in Sources */,
 				4B8AC7122A4ADD94003C8A1E /* Logger.swift in Sources */,
 				4B16870E2A4C352F0020F9F3 /* URLSession+LinuxOS.swift in Sources */,
 				4B1687102A4C3ACB0020F9F3 /* InputData.swift in Sources */,
