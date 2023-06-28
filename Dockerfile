@@ -1,5 +1,5 @@
 # Используем образ Swift
-FROM swift:5.8.1
+FROM swift:latest
 
 # Копируем файлы проекта в контейнер
 COPY src /app
