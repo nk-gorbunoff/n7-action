@@ -38,19 +38,22 @@ class BaseAPIClient {
     // MARK: - Private methods
     @discardableResult
     private func performDataTask(with request: BaseRequest) async throws -> Data {
-        let requestDetailts: String = getRequestDetails(request)
+        let requestDetails: String = getRequestDetails(request)
         do {
             let data = try await URLSession.shared.data(from: request.asURLRequest()).0
-            logger.info("\nResponse was received.\n\(requestDetailts)\nResponse body:\n\(data)", level: .verbose)
+            logger.info("Response was received.\n\(requestDetails)\n\(getResponseDetails(from: data))", level: .verbose)
             return data
         } catch {
-            logger.failure("Error was received:\n\(requestDetailts)\nError:\n\(error)")
+            logger.failure("Error was received:\n\(requestDetails)\nError:\n\(error)")
             throw error
         }
         
     }
     private func getRequestDetails(_ request: BaseRequest) -> String {
         let body: String = request.asURLRequest().httpBody.map { String(data: $0, encoding: .utf8) ?? "" } ?? ""
-        return "URL: \(request.asURLRequest().url?.absoluteString ?? "")\nBody:\n\(body)"
+        return "URL:\n\(request.asURLRequest().url?.absoluteString ?? "")\nBody:\n\(body)"
+    }
+    private func getResponseDetails(from data: Data) -> String {
+        String(data: data, encoding: .utf8).map { "Response:\n\($0)" } ?? ""
     }
 }
