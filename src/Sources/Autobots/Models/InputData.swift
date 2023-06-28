@@ -14,8 +14,8 @@ struct InputData {
     
     init?(environment: [String: String]) {
         guard let githubToken: String = environment["INPUT_GITHUB_TOKEN"],
-              let slackBotAuthToken: String = environment["SLACK_BOT_AUTH_TOKEN"],
-              let slackChannelId: String = environment["SLACK_CHANNEL_ID"] else {
+              let slackBotAuthToken: String = environment["INPUT_SLACK_BOT_AUTH_TOKEN"],
+              let slackChannelId: String = environment["INPUT_SLACK_CHANNEL_ID"] else {
             return nil
         }
         self.githubToken = githubToken
