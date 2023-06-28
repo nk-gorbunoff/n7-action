@@ -33,12 +33,12 @@ struct Logger {
     private func log(message: String, kind: Kind, level: LogLevel) {
         let prefix: String
         switch kind {
-        case .error:  prefix = "🔴[\(object)]"
+        case .error:  prefix = "⛔️[\(object)]"
         case .info: prefix = "ℹ️"
-        case .success: prefix = "🟢[\(object)]"
+        case .success: prefix = "✅[\(object)]"
         }
         let formattedMessage: String = message.replacingOccurrences(of: "\n", with: "\n\(prefix)")
-        print(prefix + " " + formattedMessage)
+        print(prefix + formattedMessage)
     }
 }
 
