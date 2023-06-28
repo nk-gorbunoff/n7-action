@@ -16,6 +16,6 @@ struct Main {
             return
         }
                 
-        SlackPRNotificationWorker(logger: logger).work(with: inputData)        
+        await SlackPRNotificationWorker(logger: logger).work(with: inputData)        
     }
 }
