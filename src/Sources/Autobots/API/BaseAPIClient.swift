@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 
 public enum APIError: Error {
     case resolvingURLError(String)
@@ -22,15 +25,13 @@ public class BaseAPIClient {
     }
     
     // MARK: - Public methods
-    public func performDataTask(for request: Request) async throws {
-       let data = try await performDataTask(with: request)
-        if let responseString = String(data: data, encoding: .utf8) {
-            print("Slack response: \(responseString)")
-        }
+    public func performDataTask(for request: URLRequest) async throws {
+        try await performDataTask(with: request)
     }
         
     // MARK: - Private methods
-    private func performDataTask(with request: Request) async throws -> Data {
+    @discardableResult
+    private func performDataTask(with request: URLRequest) async throws -> Data {
         try await URLSession.shared.data(from: request).0
     }
 }

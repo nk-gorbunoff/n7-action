@@ -10,8 +10,6 @@ import Foundation
 import FoundationNetworking
 #endif
 
-public typealias Request = URLRequest
-
 /// Defines the possible errors
 public enum URLSessionAsyncErrors: Error {
     case invalidUrlResponse, missingResponseData
