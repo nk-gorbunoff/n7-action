@@ -18,7 +18,12 @@ public final class SlackPRNotificationWorker: Worker {
     func work(with inputData: InputData) {
         let slackAPIClient: SlackAPIClient = .init(token: inputData.slackBotAuthToken, logger: logger)
         Task {
-            try await slackAPIClient.postMessage("WAZAAAAP", toChannel: inputData.slackChannelId)
+            do {
+                try await slackAPIClient.postMessage("WAZAAAAP", toChannel: inputData.slackChannelId)
+                logger.info("СООБЩЕНИЕ УСПЕШНО ОТПРАВЛЕНО")
+            } catch {
+                logger.failure("НЕ УДАЛОСЬ ОТПРАВИТЬ СООБЩЕНИЕ: \(error)")
+            }
         }
     }
 }

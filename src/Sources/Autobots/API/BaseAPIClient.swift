@@ -35,7 +35,3 @@ public class BaseAPIClient {
         try await URLSession.shared.data(from: request).0
     }
 }
-
-struct Response: Codable {
-    let ok: String
-}
