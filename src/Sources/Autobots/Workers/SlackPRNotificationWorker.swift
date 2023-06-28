@@ -7,6 +7,18 @@
 
 import Foundation
 
-public class SlackPRNotificationWorker {
+public class Worker {
+    var logger: Logger
+    init(logger: Logger) {
+        self.logger = logger
+    }
+}
 
+public final class SlackPRNotificationWorker: Worker {
+    func work(with inputData: InputData) {
+        let slackAPIClient: SlackAPIClient = .init(token: inputData.slackBotAuthToken, logger: logger)
+        Task {
+            try await slackAPIClient.postMessage("WAZAAAAP", toChannel: inputData.slackChannelId)
+        }
+    }
 }

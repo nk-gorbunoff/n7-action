@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B16870E2A4C352F0020F9F3 /* URLSession+LinuxOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B16870D2A4C352F0020F9F3 /* URLSession+LinuxOS.swift */; };
+		4B1687102A4C3ACB0020F9F3 /* InputData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B16870F2A4C3ACB0020F9F3 /* InputData.swift */; };
 		4B6660A62A4B1DC900D14537 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6660A52A4B1DC900D14537 /* BaseResponse.swift */; };
 		4B8AC7122A4ADD94003C8A1E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC7112A4ADD94003C8A1E /* Logger.swift */; };
 		4B8AC7142A4AE241003C8A1E /* BaseAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC7132A4AE241003C8A1E /* BaseAPIClient.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		4B16870D2A4C352F0020F9F3 /* URLSession+LinuxOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+LinuxOS.swift"; sourceTree = "<group>"; };
+		4B16870F2A4C3ACB0020F9F3 /* InputData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputData.swift; sourceTree = "<group>"; };
 		4B6660A52A4B1DC900D14537 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		4B8AC7112A4ADD94003C8A1E /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		4B8AC7132A4AE241003C8A1E /* BaseAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPIClient.swift; sourceTree = "<group>"; };
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B1687112A4C3ACF0020F9F3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4B16870F2A4C3ACB0020F9F3 /* InputData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		4B8AC7152A4AE28B003C8A1E /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 				4BF9DCE22A4994170033CCD8 /* Main.swift */,
 				4B8AC7192A4AF98A003C8A1E /* Workers */,
 				4B8AC7152A4AE28B003C8A1E /* API */,
+				4B1687112A4C3ACF0020F9F3 /* Models */,
 				4B8AC7162A4AE292003C8A1E /* Utilities */,
 			);
 			path = Autobots;
@@ -170,6 +181,7 @@
 				4BF9DCE32A4994170033CCD8 /* Main.swift in Sources */,
 				4B8AC7122A4ADD94003C8A1E /* Logger.swift in Sources */,
 				4B16870E2A4C352F0020F9F3 /* URLSession+LinuxOS.swift in Sources */,
+				4B1687102A4C3ACB0020F9F3 /* InputData.swift in Sources */,
 				4B6660A62A4B1DC900D14537 /* BaseResponse.swift in Sources */,
 				4B8AC7182A4AE2AD003C8A1E /* SlackAPIClient.swift in Sources */,
 				4B8AC7142A4AE241003C8A1E /* BaseAPIClient.swift in Sources */,
