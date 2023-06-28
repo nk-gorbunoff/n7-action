@@ -34,7 +34,7 @@ struct Logger {
         let prefix: String
         switch kind {
         case .error:  prefix = "🔴[\(object)]"
-        case .info: prefix = "🔵[\(object)]"
+        case .info: prefix = "ℹ️ "
         case .success: prefix = "🟢[\(object)]"
         }
         let formattedMessage: String = message.replacingOccurrences(of: "\n", with: "\n\(prefix)")
