@@ -13,14 +13,14 @@ final class SlackAPIClient: BaseAPIClient {
     private let token: String
     // MARK: - Init
     init(baseURLString: String = "https://slack.com",
-                token: String,
-                logger: Logger) {
+         token: String,
+         logger: Logger) {
         self.baseURLString = baseURLString
         self.token = token
         super.init(logger: logger)
     }
     
-   func postMessage(_ message: String, toChannel channelId: String) async throws {
+    func postMessage(_ message: String, toChannel channelId: String) async throws {
         let request: BaseRequest = BaseRequest(
             host: baseURLString,
             path: "/api/chat.postMessage",
@@ -34,6 +34,6 @@ final class SlackAPIClient: BaseAPIClient {
                 .contentType
             ]
         )
-       try await perform(request)
+        try await perform(request)
     }
 }

@@ -96,7 +96,6 @@
 		4B8AC7162A4AE292003C8A1E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				4B1687162A4C44C90020F9F3 /* Models */,
 				4B8AC7112A4ADD94003C8A1E /* Logger.swift */,
 			);
 			path = Utilities;
@@ -132,6 +131,7 @@
 				4BF9DCE22A4994170033CCD8 /* Main.swift */,
 				4B8AC7192A4AF98A003C8A1E /* Workers */,
 				4B1687122A4C42E10020F9F3 /* API */,
+				4B1687162A4C44C90020F9F3 /* Models */,
 				4B8AC7162A4AE292003C8A1E /* Utilities */,
 			);
 			path = Autobots;

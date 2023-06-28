@@ -32,7 +32,7 @@ final class BaseRequest {
         headers.forEach {
             switch $0 {
             case .authorization(let token):
-                self.headersDict[HeadersConstant.authorization] = "Bearer \(token)"
+                self.headersDict[HeadersConstant.authorization] = "Beare \(token)"
             case .contentType:
                 self.headersDict[HeadersConstant.contentType] = "application/json"
             }
