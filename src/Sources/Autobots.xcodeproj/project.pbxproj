@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B16870E2A4C352F0020F9F3 /* URLSession+LinuxOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B16870D2A4C352F0020F9F3 /* URLSession+LinuxOS.swift */; };
+		4B6660A62A4B1DC900D14537 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6660A52A4B1DC900D14537 /* BaseResponse.swift */; };
+		4B8AC7122A4ADD94003C8A1E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC7112A4ADD94003C8A1E /* Logger.swift */; };
+		4B8AC7142A4AE241003C8A1E /* BaseAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC7132A4AE241003C8A1E /* BaseAPIClient.swift */; };
+		4B8AC7182A4AE2AD003C8A1E /* SlackAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC7172A4AE2AD003C8A1E /* SlackAPIClient.swift */; };
+		4B8AC71B2A4AF9CA003C8A1E /* SlackPRNotificationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC71A2A4AF9CA003C8A1E /* SlackPRNotificationWorker.swift */; };
 		4BF9DCE32A4994170033CCD8 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF9DCE22A4994170033CCD8 /* Main.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +29,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4B16870D2A4C352F0020F9F3 /* URLSession+LinuxOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+LinuxOS.swift"; sourceTree = "<group>"; };
+		4B6660A52A4B1DC900D14537 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		4B8AC7112A4ADD94003C8A1E /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		4B8AC7132A4AE241003C8A1E /* BaseAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPIClient.swift; sourceTree = "<group>"; };
+		4B8AC7172A4AE2AD003C8A1E /* SlackAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackAPIClient.swift; sourceTree = "<group>"; };
+		4B8AC71A2A4AF9CA003C8A1E /* SlackPRNotificationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackPRNotificationWorker.swift; sourceTree = "<group>"; };
 		4BF9DCDF2A4994170033CCD8 /* Autobots */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Autobots; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF9DCE22A4994170033CCD8 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -38,6 +50,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B8AC7152A4AE28B003C8A1E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4B8AC7132A4AE241003C8A1E /* BaseAPIClient.swift */,
+				4B6660A52A4B1DC900D14537 /* BaseResponse.swift */,
+				4B8AC7172A4AE2AD003C8A1E /* SlackAPIClient.swift */,
+				4B16870D2A4C352F0020F9F3 /* URLSession+LinuxOS.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		4B8AC7162A4AE292003C8A1E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4B8AC7112A4ADD94003C8A1E /* Logger.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		4B8AC7192A4AF98A003C8A1E /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				4B8AC71A2A4AF9CA003C8A1E /* SlackPRNotificationWorker.swift */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
 		4BF9DCD62A4994170033CCD8 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +97,9 @@
 			isa = PBXGroup;
 			children = (
 				4BF9DCE22A4994170033CCD8 /* Main.swift */,
+				4B8AC7192A4AF98A003C8A1E /* Workers */,
+				4B8AC7152A4AE28B003C8A1E /* API */,
+				4B8AC7162A4AE292003C8A1E /* Utilities */,
 			);
 			path = Autobots;
 			sourceTree = "<group>";
@@ -78,6 +120,8 @@
 			dependencies = (
 			);
 			name = Autobots;
+			packageProductDependencies = (
+			);
 			productName = Autobots;
 			productReference = 4BF9DCDF2A4994170033CCD8 /* Autobots */;
 			productType = "com.apple.product-type.tool";
@@ -106,6 +150,8 @@
 				Base,
 			);
 			mainGroup = 4BF9DCD62A4994170033CCD8;
+			packageReferences = (
+			);
 			productRefGroup = 4BF9DCE02A4994170033CCD8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -120,7 +166,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B8AC71B2A4AF9CA003C8A1E /* SlackPRNotificationWorker.swift in Sources */,
 				4BF9DCE32A4994170033CCD8 /* Main.swift in Sources */,
+				4B8AC7122A4ADD94003C8A1E /* Logger.swift in Sources */,
+				4B16870E2A4C352F0020F9F3 /* URLSession+LinuxOS.swift in Sources */,
+				4B6660A62A4B1DC900D14537 /* BaseResponse.swift in Sources */,
+				4B8AC7182A4AE2AD003C8A1E /* SlackAPIClient.swift in Sources */,
+				4B8AC7142A4AE241003C8A1E /* BaseAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,9 +295,11 @@
 		4BF9DCE72A4994170033CCD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AYV425VG3P;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/.build/debug";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -254,9 +308,11 @@
 		4BF9DCE82A4994170033CCD8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AYV425VG3P;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/.build/debug";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

@@ -8,44 +8,21 @@
 import Foundation
 
 @main
-public struct Main {
-    public static func main() {
+struct Main {
+    static func main() async {
+        let logger: Logger = .init()
         
-        guard let slackToken = ProcessInfo.processInfo.environment["INPUT_SLACK_BOT_AUTH_TOKEN"],
-              let channelID = ProcessInfo.processInfo.environment["INPUT_SLACK_CHANNEL_ID"] else {
-            print("ERROR ERROR")
-            return
+        let slackToken = "xoxb-5367541263360-5350935183443-8Nt7OBgE5TxLqN6kGq8Z9TSQ"
+        let channelID = "C05A0SCBB45"
+        let message = "ААААААААА"
+        
+                
+        do {
+            try await SlackAPIClient(token: slackToken, logger: logger).postMessage(message, toChannel: channelID)
+            print("Сообщение успешно отправлено в Slack.")
+        } catch {
+            print("Ошибка при отправке сообщения в Slack: \(error)")
         }
-        
-        let message = "Hello, Slack!"
-        API().postMessageToSlack(token: slackToken, channel: channelID, message: message)
     }
-}
 
-
-struct API {
-    func postMessageToSlack(token: String, channel: String, message: String) {
-        let url = URL(string: "https://slack.com/api/chat.postMessage")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        
-        let parameters = [
-            "token": token,
-            "channel": channel,
-            "text": message
-        ]
-        
-        let jsonData = try! JSONSerialization.data(withJSONObject: parameters)
-        
-        let task = URLSession.shared.uploadTask(with: request, from: jsonData) { (data, response, error) in
-            if let error = error {
-                print("Error: \(error)")
-            } else if let data = data,
-                      let dataString = String(data: data, encoding: .utf8) {
-                print("Response: \(dataString)")
-            }
-        }
-        
-        task.resume()
-    }
 }
