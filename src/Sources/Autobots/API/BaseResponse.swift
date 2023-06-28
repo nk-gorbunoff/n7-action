@@ -6,9 +6,6 @@
 //
 
 import Foundation
-#if canImport(FoundationNetworking)
-import FoundationNetworking
-#endif
 
 class BaseRequest {
     typealias Headers = [String: String]
@@ -39,7 +36,7 @@ class BaseRequest {
         }
     }
     
-    func asURLRequest() -> URLRequest {
+    func asURLRequest() -> Request {
         var components: URLComponents? = .init(string: host)
         components!.path = path
         let url: URL = components!.url!

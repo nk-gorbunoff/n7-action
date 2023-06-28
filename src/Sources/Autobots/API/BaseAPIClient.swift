@@ -22,7 +22,7 @@ public class BaseAPIClient {
     }
     
     // MARK: - Public methods
-    public func performDataTask(for request: URLRequest) async throws {
+    public func performDataTask(for request: Request) async throws {
        let data = try await performDataTask(with: request)
         if let responseString = String(data: data, encoding: .utf8) {
             print("Slack response: \(responseString)")
@@ -30,7 +30,7 @@ public class BaseAPIClient {
     }
         
     // MARK: - Private methods
-    private func performDataTask(with request: URLRequest) async throws -> Data {
+    private func performDataTask(with request: Request) async throws -> Data {
         try await URLSession.shared.data(from: request).0
     }
 }
