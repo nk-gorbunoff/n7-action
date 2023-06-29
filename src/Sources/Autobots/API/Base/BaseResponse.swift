@@ -24,19 +24,12 @@ final class BaseRequest {
          path: String,
          method: HTTPMethod,
          parameters: Parameters = [:],
-         headers: [Header] = []) {
+         headers: [HeaderType] = []) {
         self.host = host
         self.path = path
         self.method = method
         self.parameters = parameters
-        headers.forEach {
-            switch $0 {
-            case .authorization(let token):
-                self.headersDict[HeadersConstant.authorization] = "Beare \(token)"
-            case .contentType:
-                self.headersDict[HeadersConstant.contentType] = "application/json"
-            }
-        }
+        self.setupHeaders(with: headers)
     }
     
     func asURLRequest() -> URLRequest {
@@ -48,6 +41,19 @@ final class BaseRequest {
         headersDict.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
         request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         return request
+    }
+    
+    private func setupHeaders(with headersEnum: [HeaderType]) {
+        headersEnum.forEach {
+            switch $0 {
+            case .authorization(let token):
+                self.headersDict[HeadersConstant.authorization] = "Bearer \(token)"
+            case .contentType:
+                self.headersDict[HeadersConstant.contentType] = "application/json"
+            case .accept:
+                self.headersDict[HeadersConstant.accept] = "application/vnd.github+json"
+            }
+        }
     }
 }
 
@@ -64,9 +70,11 @@ extension BaseRequest {
     struct HeadersConstant {
         static let authorization: String = "Authorization"
         static let contentType: String = "Content-Type"
+        static let accept: String = "Accept"
     }
-    enum Header {
+    enum HeaderType {
         case authorization(token: String)
         case contentType
+        case accept
     }
 }

@@ -1,11 +1,18 @@
 version: "Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)"
 options: "86ebf2cb1b86b52a7856975268d108069c1f55bd5a5755b180d3d2a59ab28ae7"
-build_start_time: [1687940739, 7124000]
-build_end_time: [1687940739, 321092000]
+build_start_time: [1688034099, 257749000]
+build_end_time: [1688034099, 569417000]
 inputs:
-  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/API/BaseAPIClient.swift": [1687939523, 863369723]
-  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/API/BaseResponse.swift": [1687940629, 720420397]
-  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/API/SlackAPIClient.swift": [1687940646, 611350485]
-  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/Main.swift": [1687940652, 335898384]
-  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/Utilities/Logger.swift": [1687857952, 865099455]
-  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/Workers/SlackPRNotificationWorker.swift": [1687864431, 270710989]
+  ? "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/DerivedSources/resource_bundle_accessor.swift"
+  : [1688034058, 348420551]
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/API/Base/APIError.swift": [1687962237, 433438220]
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/API/Base/BaseAPIClient.swift": [1688024752, 773578349]
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/API/Base/BaseResponse.swift": [1688025512, 706442987]
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/API/Base/URLSession+LinuxOS.swift": [1688023697, 675271837]
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/API/Clients/SlackAPIClient.swift": [1688029341, 55395323]
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/Main.swift": [1688024619, 240244255]
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/Models/InputData.swift": [1688024619, 217934604]
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/Models/TriggerEvent.swift": [1687955783, 125505213]
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/Utilities/Logger.swift": [1688025607, 74121245]
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/Utilities/SlackMessageConstructor.swift": [1688033614, 422953929]
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/Workers/SlackPRNotificationWorker.swift": [1688031033, 325948437]

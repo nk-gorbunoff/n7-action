@@ -9,11 +9,11 @@ import Foundation
 
 struct Logger {
     // MARK: - Properties
-    private let object: String
+    private let subject: String
     
     // MARK: - Init
-    init(object: String) {
-        self.object = object
+    init(subject: String) {
+        self.subject = subject
     }
     
     // MARK: - Public methods
@@ -33,11 +33,11 @@ struct Logger {
     private func log(message: String, kind: Kind, level: LogLevel) {
         let prefix: String
         switch kind {
-        case .error:  prefix = "⛔️[\(object)] "
-        case .info: prefix = "ℹ️ "
-        case .success: prefix = "✅[\(object)] "
+        case .error: prefix = "⛔️[\(subject)] "
+        case .info: prefix = "ℹ️"
+        case .success: prefix = "✅[\(subject)] "
         }
-        let formattedMessage: String = message.replacingOccurrences(of: "\n", with: "\n\(prefix) ")
+        let formattedMessage: String = message.replacingOccurrences(of: "\n", with: "\n\(prefix)")
         print(prefix + formattedMessage)
     }
 }

@@ -5,10 +5,15 @@ import PackageDescription
 
 let package = Package(
     name: "Autobots",
+    platforms: [.macOS(.v12)],
     dependencies: [],
     targets: [
         .executableTarget(
             name: "Autobots",
-            dependencies: []),
+            dependencies: [],
+            resources: [
+                .process("Resources")
+            ]
+            ),
     ]
 )

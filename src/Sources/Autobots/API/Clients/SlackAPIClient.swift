@@ -9,31 +9,33 @@ import Foundation
 
 final class SlackAPIClient: BaseAPIClient {
     // MARK: - Properties
-    private let baseURLString: String
+    private let host: String
     private let token: String
     // MARK: - Init
-    init(baseURLString: String = "https://slack.com",
+    init(host: String = "https://slack.com",
          token: String,
          logger: Logger) {
-        self.baseURLString = baseURLString
+        self.host = host
         self.token = token
         super.init(logger: logger)
     }
     
-    func postMessage(_ message: String, toChannel channelId: String) async throws {
-        let request: BaseRequest = BaseRequest(
-            host: baseURLString,
+    // MARK: - Public methods
+    func postMessage(_ blocks: String, toChannel channelId: String) async throws {
+        let request: BaseRequest = .init(
+            host: host,
             path: "/api/chat.postMessage",
             method: .post,
             parameters: [
                 "channel": channelId,
-                "text": message
+                "blocks": blocks
             ],
             headers: [
                 .authorization(token: token),
                 .contentType
             ]
         )
+        
         try await perform(request)
     }
 }

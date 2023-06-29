@@ -2,23 +2,35 @@
   "": {
     "swift-dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/master.swiftdeps"
   },
-  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/API/BaseAPIClient.swift": {
-    "dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/BaseAPIClient.d",
-    "object": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/BaseAPIClient.swift.o",
-    "swiftmodule": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/BaseAPIClient~partial.swiftmodule",
-    "swift-dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/BaseAPIClient.swiftdeps"
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/API/Base/APIError.swift": {
+    "dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Base/APIError.d",
+    "object": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Base/APIError.swift.o",
+    "swiftmodule": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Base/APIError~partial.swiftmodule",
+    "swift-dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Base/APIError.swiftdeps"
   },
-  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/API/BaseResponse.swift": {
-    "dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/BaseResponse.d",
-    "object": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/BaseResponse.swift.o",
-    "swiftmodule": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/BaseResponse~partial.swiftmodule",
-    "swift-dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/BaseResponse.swiftdeps"
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/API/Base/BaseAPIClient.swift": {
+    "dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Base/BaseAPIClient.d",
+    "object": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Base/BaseAPIClient.swift.o",
+    "swiftmodule": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Base/BaseAPIClient~partial.swiftmodule",
+    "swift-dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Base/BaseAPIClient.swiftdeps"
   },
-  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/API/SlackAPIClient.swift": {
-    "dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/SlackAPIClient.d",
-    "object": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/SlackAPIClient.swift.o",
-    "swiftmodule": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/SlackAPIClient~partial.swiftmodule",
-    "swift-dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/SlackAPIClient.swiftdeps"
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/API/Base/BaseResponse.swift": {
+    "dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Base/BaseResponse.d",
+    "object": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Base/BaseResponse.swift.o",
+    "swiftmodule": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Base/BaseResponse~partial.swiftmodule",
+    "swift-dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Base/BaseResponse.swiftdeps"
+  },
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/API/Base/URLSession+LinuxOS.swift": {
+    "dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Base/URLSession+LinuxOS.d",
+    "object": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Base/URLSession+LinuxOS.swift.o",
+    "swiftmodule": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Base/URLSession+LinuxOS~partial.swiftmodule",
+    "swift-dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Base/URLSession+LinuxOS.swiftdeps"
+  },
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/API/Clients/SlackAPIClient.swift": {
+    "dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Clients/SlackAPIClient.d",
+    "object": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Clients/SlackAPIClient.swift.o",
+    "swiftmodule": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Clients/SlackAPIClient~partial.swiftmodule",
+    "swift-dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/API/Clients/SlackAPIClient.swiftdeps"
   },
   "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/Main.swift": {
     "dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Main.d",
@@ -26,16 +38,40 @@
     "swiftmodule": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Main~partial.swiftmodule",
     "swift-dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Main.swiftdeps"
   },
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/Models/InputData.swift": {
+    "dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Models/InputData.d",
+    "object": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Models/InputData.swift.o",
+    "swiftmodule": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Models/InputData~partial.swiftmodule",
+    "swift-dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Models/InputData.swiftdeps"
+  },
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/Models/TriggerEvent.swift": {
+    "dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Models/TriggerEvent.d",
+    "object": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Models/TriggerEvent.swift.o",
+    "swiftmodule": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Models/TriggerEvent~partial.swiftmodule",
+    "swift-dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Models/TriggerEvent.swiftdeps"
+  },
   "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/Utilities/Logger.swift": {
     "dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Utilities/Logger.d",
     "object": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Utilities/Logger.swift.o",
     "swiftmodule": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Utilities/Logger~partial.swiftmodule",
     "swift-dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Utilities/Logger.swiftdeps"
   },
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/Utilities/SlackMessageConstructor.swift": {
+    "dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Utilities/SlackMessageConstructor.d",
+    "object": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Utilities/SlackMessageConstructor.swift.o",
+    "swiftmodule": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Utilities/SlackMessageConstructor~partial.swiftmodule",
+    "swift-dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Utilities/SlackMessageConstructor.swiftdeps"
+  },
   "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/Sources/Autobots/Workers/SlackPRNotificationWorker.swift": {
     "dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Workers/SlackPRNotificationWorker.d",
     "object": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Workers/SlackPRNotificationWorker.swift.o",
     "swiftmodule": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Workers/SlackPRNotificationWorker~partial.swiftmodule",
     "swift-dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/Workers/SlackPRNotificationWorker.swiftdeps"
+  },
+  "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/DerivedSources/resource_bundle_accessor.swift": {
+    "dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/resource_bundle_accessor.d",
+    "object": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/resource_bundle_accessor.swift.o",
+    "swiftmodule": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/resource_bundle_accessor~partial.swiftmodule",
+    "swift-dependencies": "/Users/nk.gorbunoff/Development/ga/n7-github-action/src/.build/arm64-apple-macosx/debug/Autobots.build/resource_bundle_accessor.swiftdeps"
   }
 }

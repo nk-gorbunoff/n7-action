@@ -18,10 +18,6 @@ extension URLSession {
     ///
     /// - Parameter request: The URLRequest for which to load data.
     /// - Returns: Data and URLResponse.
-    ///
-    /// - Usage:
-    ///
-    ///     let (data, response) = try await URLSession.shared.asyncData(from: url)
     func data(from request: URLRequest) async throws -> (Data, URLResponse) {
         return try await withCheckedThrowingContinuation { continuation in
             let task = self.dataTask(with: request) { data, response, error in
@@ -43,4 +39,3 @@ extension URLSession {
         }
     }
 }
-

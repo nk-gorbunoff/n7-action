@@ -10,18 +10,25 @@ import Foundation
 public class Worker {
     var logger: Logger
     init() {
-        self.logger = .init(object: "\(Self.self)")
+        self.logger = .init(subject: "\(Self.self)")
     }
 }
 
 public final class SlackPRNotificationWorker: Worker {
     func work(with inputData: InputData) async {
-        let slackAPIClient: SlackAPIClient = .init(token: inputData.slackBotAuthToken, logger: logger)
-        do {
-            try await slackAPIClient.postMessage("WAZZAP", toChannel: inputData.slackChannelId)
-            logger.success("Post message complete")
-        } catch {
-            logger.failure("Post message failed")
-        }
+//        let githubAPIClient: GithubAPIClient = .init(token: inputData.githubToken, logger: logger)
+//        do {
+//            try githubAPIClient.getPullRequestsList(owner: inputData.githubRepoOwner, repo: inputData.githubRepoName)
+//        } catch {
+//
+//        }
+//        let slackAPIClient: SlackAPIClient = .init(token: inputData.slackBotAuthToken, logger: logger)
+//        do {
+//            let message = ""
+//            try await slackAPIClient.postMessage(message, toChannel: inputData.slackChannelId)
+//            logger.success("Sending message in Slack was succeeded")
+//        } catch {
+//            logger.failure("Sending message in Slack was failed")
+//        }
     }
 }
