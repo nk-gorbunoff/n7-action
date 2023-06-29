@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TriggerAction {
-    case schedule
-    case createPullRequest
+enum TriggerEvent: String {
+    case schedule = "schedule"
+    case createPullRequest = "pull_request"
 }

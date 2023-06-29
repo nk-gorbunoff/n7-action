@@ -10,7 +10,10 @@ inputs:
     required: true
   github_token:
     description: 'The GitHub token for accessing the repository'
-    required: true
+    required: true,
+  pull_request_number:
+    description: 'The PR number from GitHub'
+    required: false,  
 
 runs:
   using: 'docker'
