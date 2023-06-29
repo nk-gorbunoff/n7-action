@@ -35,4 +35,18 @@ final class GithubAPIClient: BaseAPIClient {
         
         try await perform(request)
     }
+    
+    func getPullRequestInfo(owner: String, repo: String, pullRequestNumber: String) async throws {
+        let request: BaseRequest = .init(
+            host: host,
+            path: "/repos/\(owner)/\(repo)/pulls/\(pullRequestNumber)",
+            method: .get,
+            headers: [
+                .authorization(token: token),
+                .accept
+            ]
+        )
+        
+        try await perform(request)
+    }
 }
