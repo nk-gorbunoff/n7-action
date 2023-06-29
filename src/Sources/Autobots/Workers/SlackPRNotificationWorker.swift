@@ -18,16 +18,16 @@ public final class SlackPRNotificationWorker: Worker {
     func work(with inputData: InputData) async {
         let githubAPIClient: GithubAPIClient = .init(token: inputData.githubToken, logger: logger)
         do {
-            try await githubAPIClient.getPullRequestsList(owner: inputData.githubRepositoryOwner, repo: inputData.githubRepository)
+            try await githubAPIClient.getPullRequestsList(owner: "", repo: inputData.githubRepository)
             logger.success("ПРЫ ИЗ ГИТХАБА ПРИШЛИ")
         } catch {
-            logger.success("ПРЫ ИЗ ГИТХАБА НЕ ПРИШЛИ")
+            logger.failure("ПРЫ ИЗ ГИТХАБА НЕ ПРИШЛИ")
         }
         
         do {
             if let pullRequestNumber: String = inputData.githubPullRequestNumber {
                 try await githubAPIClient.getPullRequestInfo(
-                    owner: inputData.githubRepositoryOwner,
+                    owner: "",
                     repo: inputData.githubRepository,
                     pullRequestNumber: pullRequestNumber
                 )
