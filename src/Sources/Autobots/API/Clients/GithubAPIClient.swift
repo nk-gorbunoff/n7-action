@@ -25,7 +25,7 @@ final class GithubAPIClient: BaseAPIClient {
     func getPullRequestsList(owner: String, repo: String) async throws {
         let request: BaseRequest = .init(
             host: host,
-            path: "/repos/\(owner)/\(repo)/pulls",
+            path: "/repos/\(repo)/pulls",
             method: .get,
             headers: [
                 .authorization(token: token),
@@ -39,7 +39,7 @@ final class GithubAPIClient: BaseAPIClient {
     func getPullRequestInfo(owner: String, repo: String, pullRequestNumber: String) async throws {
         let request: BaseRequest = .init(
             host: host,
-            path: "/repos/\(owner)/\(repo)/pulls/\(pullRequestNumber)",
+            path: "/repos/\(repo)/pulls/\(pullRequestNumber)",
             method: .get,
             headers: [
                 .authorization(token: token),
