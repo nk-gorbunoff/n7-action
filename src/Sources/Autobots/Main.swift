@@ -16,12 +16,14 @@ struct Main {
             return
         }
         
-        switch inputData.githubEvent {
-        case .schedule:
-            logger.success("РАСПИСАНИЕ")
-        case .createPullRequest:
-            logger.success("ПУЛЛ РЕКВЕСТИК")
-        }
+//        switch inputData.githubEvent {
+//        case .schedule:
+//            logger.success("РАСПИСАНИЕ")
+//        case .createPullRequest:
+//            logger.success("ПУЛЛ РЕКВЕСТИК")
+//        }
+        
+        await SlackPRNotificationWorker().work(with: inputData)
 
     }
 }
