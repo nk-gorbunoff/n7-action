@@ -60,6 +60,6 @@ extension GithubAPIClient {
         let user: User
     }
     struct User: Decodable {
-        let name: String
+        let login: String
     }
 }
