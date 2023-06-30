@@ -9,7 +9,7 @@ import Foundation
 
 struct InputData {
     //Github
-    let githubEvent: TriggerEvent    
+    let githubEventName: String
     let githubToken: String
     let githubRepository: String
     let githubRepositoryOwner: String
@@ -18,10 +18,10 @@ struct InputData {
     //Slack
     let slackBotAuthToken: String
     let slackChannelId: String
-    
+        
+    // MARK: - Init
     init?(environment: [String: String]) {
         guard let githubEventName: String = environment["GITHUB_EVENT_NAME"],
-              let githubEvent: TriggerEvent = .init(rawValue: githubEventName),
               let githubToken: String = environment["INPUT_GITHUB_TOKEN"],
               let githubRepository: String = environment["GITHUB_REPOSITORY"],
               let githubRepositoryOwner: String = environment["GITHUB_REPOSITORY_OWNER"],
@@ -30,7 +30,7 @@ struct InputData {
             return nil
         }
         
-        self.githubEvent = githubEvent
+        self.githubEventName = githubEventName
         self.githubToken = githubToken
         self.githubRepositoryOwner = githubRepositoryOwner
         self.githubRepository = githubRepository
