@@ -54,8 +54,7 @@ class BaseAPIClient {
         let request: URLRequest = request.asURLRequest()
         let url: String = request.url.map { "URL: \($0.absoluteString)" } ?? ""
         let body: String = request.httpBody.map { "Body: \(String(data: $0, encoding: .utf8) ?? "")" } ?? ""
-        let headers: String = request.allHTTPHeaderFields?.reduce("Headers:") { $0 + "\($1.key):\($1.value)" } ?? ""
-        return "\(url)\n\(body)\n\(headers)"
+        return "\(url)\n\(body)"
     }
     private func getResponseDetails(from data: Data) -> String {
         String(data: data, encoding: .utf8).map { "Response: \($0)" } ?? ""

@@ -16,17 +16,17 @@ struct Main {
             logger.failure("Failed to receive input data: \(ProcessInfo.processInfo.environment)")
             return
         }
-        guard let triggerEvent: TriggerEvent = .init(rawValue: inputData.githubEventName) else {
-            logger.failure("Unknown trigger event: \(inputData.githubEventName)")
-            return
-        }
+//        guard let triggerEvent: TriggerEvent = .init(rawValue: inputData.githubEventName) else {
+//            logger.failure("Unknown trigger event: \(inputData.githubEventName)")
+//            return
+//        }
         
-        switch triggerEvent {
-        case .schedule:
-            logger.success("РАСПИСАНИЕ")
-        case .createPullRequest:
-            logger.success("ПУЛЛ РЕКВЕСТИК")
-        }
+//        switch triggerEvent {
+//        case .schedule:
+//            logger.success("РАСПИСАНИЕ")
+//        case .createPullRequest:
+//            logger.success("ПУЛЛ РЕКВЕСТИК")
+//        }
         
         await SlackPRNotificationWorker().work(with: inputData)
     }

@@ -29,7 +29,8 @@ final class GithubAPIClient: BaseAPIClient {
             method: .get,
             headers: [
                 .authorization(token: token),
-                .accept
+                .accept,
+                .githubAPIVersion
             ]
         )
         
