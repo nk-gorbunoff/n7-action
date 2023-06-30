@@ -39,7 +39,9 @@ final class BaseRequest {
         var request: URLRequest = .init(url: url)
         request.httpMethod = method.rawValue
         headersDict.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
-        request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+        if !parameters.isEmpty {
+            request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+        }
         return request
     }
     
