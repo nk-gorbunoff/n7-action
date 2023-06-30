@@ -52,6 +52,8 @@ final class BaseRequest {
                 self.headersDict[HeadersConstant.contentType] = "application/json"
             case .accept:
                 self.headersDict[HeadersConstant.accept] = "application/vnd.github+json"
+            case .githubAPIVersion:
+                self.headersDict[HeadersConstant.githubAPIVersion] = "2022-11-28"
             }
         }
     }
@@ -71,10 +73,12 @@ extension BaseRequest {
         static let authorization: String = "Authorization"
         static let contentType: String = "Content-Type"
         static let accept: String = "Accept"
+        static let githubAPIVersion: String = "X-GitHub-Api-Version"
     }
     enum HeaderType {
         case authorization(token: String)
         case contentType
         case accept
+        case githubAPIVersion
     }
 }

@@ -24,20 +24,20 @@ public final class SlackPRNotificationWorker: Worker {
             logger.failure("ПРЫ ИЗ ГИТХАБА НЕ ПРИШЛИ")
         }
         
-        do {
-            if let pullRequestNumber: String = inputData.githubPullRequestNumber {
-                try await githubAPIClient.getPullRequestInfo(
-                    owner: "",
-                    repo: inputData.githubRepository,
-                    pullRequestNumber: pullRequestNumber
-                )
-                logger.success("ПР ИНФО ИЗ ГИТХАБА ПРИШЕЛ")
-            } else {
-                logger.failure("НОМЕР ПРА НЕ АЛЁ")
-            }
-        } catch {
-            logger.failure("ПР ИНФО ИЗ ГИТХАБА ПРИШЕЛ")
-        }
+//        do {
+//            if let pullRequestNumber: String = inputData.githubPullRequestNumber {
+//                try await githubAPIClient.getPullRequestInfo(
+//                    owner: "",
+//                    repo: inputData.githubRepository,
+//                    pullRequestNumber: pullRequestNumber
+//                )
+//                logger.success("ПР ИНФО ИЗ ГИТХАБА ПРИШЕЛ")
+//            } else {
+//                logger.failure("НОМЕР ПРА НЕ АЛЁ")
+//            }
+//        } catch {
+//            logger.failure("ПР ИНФО ИЗ ГИТХАБА ПРИШЕЛ")
+//        }
         
         
         
