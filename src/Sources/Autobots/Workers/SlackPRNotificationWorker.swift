@@ -7,30 +7,19 @@
 
 import Foundation
 
-public class Worker {
-    var logger: Logger
-    init() {
-        self.logger = .init(subject: "\(Self.self)")
-    }
-}
-
-public final class SlackPRNotificationWorker: Worker {
+final class SlackPRNotificationWorker: Worker {
     func work(with inputData: InputData) async {
         let githubAPIClient: GithubAPIClient = .init(token: inputData.githubToken, logger: logger)
         do {
-            try await githubAPIClient.getPullRequestsList(owner: "", repo: inputData.githubRepository)
-            logger.success("ПРЫ ИЗ ГИТХАБА ПРИШЛИ")
+            let prs = try await githubAPIClient.getPullRequestsList(repo: inputData.githubRepository)
+            logger.success("ПРЫ ИЗ ГИТХАБА ПРИШЛИ \(prs)")
         } catch {
             logger.failure("ПРЫ ИЗ ГИТХАБА НЕ ПРИШЛИ")
         }
         
 //        do {
 //            if let pullRequestNumber: String = inputData.githubPullRequestNumber {
-//                try await githubAPIClient.getPullRequestInfo(
-//                    owner: "",
-//                    repo: inputData.githubRepository,
-//                    pullRequestNumber: pullRequestNumber
-//                )
+//                try await githubAPIClient.getPullRequestInfo(repo: inputData.githubRepository, PRNumber: pullRequestNumber)
 //                logger.success("ПР ИНФО ИЗ ГИТХАБА ПРИШЕЛ")
 //            } else {
 //                logger.failure("НОМЕР ПРА НЕ АЛЁ")

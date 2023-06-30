@@ -11,6 +11,13 @@ final class GithubAPIClient: BaseAPIClient {
     // MARK: - Properties
     private let host: String
     private let token: String
+    private var headers: [BaseRequest.HeaderType] {
+        [
+            .authorization(token: token),
+            .accept,
+            .githubAPIVersion
+        ]
+    }
     
     // MARK: - Init
     init(host: String = "https://api.github.com",
@@ -22,33 +29,37 @@ final class GithubAPIClient: BaseAPIClient {
     }
     
     // MARK: - Public methods
-    func getPullRequestsList(owner: String, repo: String) async throws {
+    func getPullRequestsList(repo: String) async throws -> [PullRequest] {
         let request: BaseRequest = .init(
             host: host,
             path: "/repos/\(repo)/pulls",
             method: .get,
-            headers: [
-                .authorization(token: token),
-                .accept,
-                .githubAPIVersion
-            ]
+            headers: headers
         )
         
-        try await perform(request)
+        return try await perform(request, withOutput: [PullRequest].self)
     }
     
-    func getPullRequestInfo(owner: String, repo: String, pullRequestNumber: String) async throws {
+    func getPullRequestInfo(by PRNumber: String, repo: String) async throws -> PullRequest {
         let request: BaseRequest = .init(
             host: host,
-            path: "/repos/\(repo)/pulls/\(pullRequestNumber)",
+            path: "/repos/\(repo)/pulls/\(PRNumber)",
             method: .get,
-            headers: [
-                .authorization(token: token),
-                .accept,
-                .githubAPIVersion
-            ]
+            headers: headers
         )
         
-        try await perform(request)
+        return try await perform(request, withOutput: PullRequest.self)
+    }
+}
+
+// MARK: - Models
+extension GithubAPIClient {
+    struct PullRequest: Decodable {
+        let number: Int
+        let title: String
+        let user: User
+    }
+    struct User: Decodable {
+        let name: String
     }
 }

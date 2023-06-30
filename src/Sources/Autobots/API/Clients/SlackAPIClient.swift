@@ -11,6 +11,12 @@ final class SlackAPIClient: BaseAPIClient {
     // MARK: - Properties
     private let host: String
     private let token: String
+    private var header: [BaseRequest.HeaderType] {
+        [
+            .authorization(token: token),
+            .contentType
+        ]
+    }
     // MARK: - Init
     init(host: String = "https://slack.com",
          token: String,
@@ -30,10 +36,7 @@ final class SlackAPIClient: BaseAPIClient {
                 "channel": channelId,
                 "blocks": blocks
             ],
-            headers: [
-                .authorization(token: token),
-                .contentType
-            ]
+            headers: header
         )
         
         try await perform(request)

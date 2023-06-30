@@ -24,13 +24,12 @@ class BaseAPIClient {
        try await performDataTask(with: request)
     }
     
-    func performWithOutput<T: Decodable>(_ request: BaseRequest) async throws -> T {
+    func perform<T: Decodable>(_ request: BaseRequest, withOutput: T.Type) async throws -> T {
         let data: Data = try await performDataTask(with: request)
         do {
             return try JSONDecoder().decode(T.self, from: data)
         } catch {
-            logger.failure("Error decoding data\n\(getRequestDetails(request))", level: .verbose)
-            logger.info("Error:\n\(error)", level: .verbose)
+            logger.info("Error decoding data\n\(getRequestDetails(request))\nError:\n\(error)", level: .verbose)
             throw APIError.decodingDataFailed
         }
     }
@@ -44,8 +43,7 @@ class BaseAPIClient {
             logger.info("Response was received\n\(requestDetails)\n\(getResponseDetails(from: data))", level: .verbose)
             return data
         } catch {
-            logger.failure("Error was received\n\(requestDetails)", level: .verbose)
-            logger.info("Error:\n\(error)", level: .verbose)
+            logger.info("Error was received\n\(requestDetails)\nError:\n\(error)", level: .verbose)
             throw error
         }
         
@@ -53,8 +51,8 @@ class BaseAPIClient {
     private func getRequestDetails(_ request: BaseRequest) -> String {
         let request: URLRequest = request.asURLRequest()
         let url: String = request.url.map { "URL: \($0.absoluteString)" } ?? ""
-        let body: String = request.httpBody.map { "Body: \(String(data: $0, encoding: .utf8) ?? "")" } ?? ""
-        return "\(url)\n\(body)"
+        let body: String = request.httpBody.map { "\nBody: \(String(data: $0, encoding: .utf8) ?? "")" } ?? ""
+        return url + body
     }
     private func getResponseDetails(from data: Data) -> String {
         String(data: data, encoding: .utf8).map { "Response: \($0)" } ?? ""

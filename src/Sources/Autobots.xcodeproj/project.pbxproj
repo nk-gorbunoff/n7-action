@@ -15,6 +15,7 @@
 		4B21AC3A2A4D8842009D42CA /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B21AC0D2A4D838F009D42CA /* Logger.swift */; };
 		4B21AC3B2A4D8844009D42CA /* SlackMessageConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B21AC0F2A4D838F009D42CA /* SlackMessageConstructor.swift */; };
 		4B3AA4762A4DC53300159E13 /* GithubAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3AA4752A4DC53300159E13 /* GithubAPIClient.swift */; };
+		4B3AA4782A4EC8D100159E13 /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3AA4772A4EC8D100159E13 /* Worker.swift */; };
 		4B6660A62A4B1DC900D14537 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6660A52A4B1DC900D14537 /* BaseResponse.swift */; };
 		4B8AC7142A4AE241003C8A1E /* BaseAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC7132A4AE241003C8A1E /* BaseAPIClient.swift */; };
 		4B8AC7182A4AE2AD003C8A1E /* SlackAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC7172A4AE2AD003C8A1E /* SlackAPIClient.swift */; };
@@ -41,6 +42,7 @@
 		4B21AC0D2A4D838F009D42CA /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		4B21AC0F2A4D838F009D42CA /* SlackMessageConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackMessageConstructor.swift; sourceTree = "<group>"; };
 		4B3AA4752A4DC53300159E13 /* GithubAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIClient.swift; sourceTree = "<group>"; };
+		4B3AA4772A4EC8D100159E13 /* Worker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
 		4B6660A52A4B1DC900D14537 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		4B8AC7132A4AE241003C8A1E /* BaseAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPIClient.swift; sourceTree = "<group>"; };
 		4B8AC7172A4AE2AD003C8A1E /* SlackAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackAPIClient.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		4B8AC7192A4AF98A003C8A1E /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				4B3AA4772A4EC8D100159E13 /* Worker.swift */,
 				4B8AC71A2A4AF9CA003C8A1E /* SlackPRNotificationWorker.swift */,
 			);
 			path = Workers;
@@ -207,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BF9DCE32A4994170033CCD8 /* Main.swift in Sources */,
+				4B3AA4782A4EC8D100159E13 /* Worker.swift in Sources */,
 				4B1687152A4C44C20020F9F3 /* TriggerEvent.swift in Sources */,
 				4B1687182A4C6E330020F9F3 /* APIError.swift in Sources */,
 				4B21AC102A4D83EE009D42CA /* SlackPRNotificationWorker.swift in Sources */,
