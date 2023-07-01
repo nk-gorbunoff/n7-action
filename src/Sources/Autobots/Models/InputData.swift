@@ -20,7 +20,7 @@ struct InputData {
     //Slack
     let slackBotAuthToken: String
     let slackChannelId: String
-    let slackUserGroupId: String
+//    let slackUserGroupId: String
         
     // MARK: - Init
     init?(environment: Environment) {
@@ -28,8 +28,8 @@ struct InputData {
               let githubToken: String = environment["INPUT_GITHUB_TOKEN"],
               let githubRepository: String = environment["GITHUB_REPOSITORY"],
               let slackBotAuthToken: String = environment["INPUT_SLACK_BOT_AUTH_TOKEN"],
-              let slackChannelId: String = environment["INPUT_SLACK_CHANNEL_ID"],
-              let slackUserGroupId: String = environment["INPUT_SLACK_USER_GROUP_ID"] else {
+              let slackChannelId: String = environment["INPUT_SLACK_CHANNEL_ID"] else {
+//              let slackUserGroupId: String = environment["INPUT_SLACK_USER_GROUP_ID"] else {
             return nil
         }
         
@@ -39,7 +39,7 @@ struct InputData {
         self.githubPullRequestNumber = environment["INPUT_PULL_REQUEST_NUMBER"]
         self.slackBotAuthToken = slackBotAuthToken
         self.slackChannelId = slackChannelId
-        self.slackUserGroupId = slackUserGroupId
+//        self.slackUserGroupId = slackUserGroupId
     }
 }
 

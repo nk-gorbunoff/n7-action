@@ -10,7 +10,7 @@ import Foundation
 @main
 struct Main {
     static func main() async {
-        let logger: Logger = .init(subject: #file)
+        let logger: Logger = .init(subject: #function)
         let invironment: Environment = ProcessInfo.processInfo.environment
         
         guard let inputData: InputData = .init(environment: invironment),
