@@ -11,4 +11,6 @@ enum APIError: Error {
     case invalidURLResponse
     case missingResponseData
     case decodingDataFailed
+    case invalidJSONObject
+    case responseMappingError(Decodable)
 }

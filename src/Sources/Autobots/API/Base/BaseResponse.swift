@@ -10,26 +10,25 @@ import Foundation
 import FoundationNetworking
 #endif
 
-final class BaseRequest {
+final class Request {
     typealias Headers = [String: String]
-    typealias Parameters = [String: Any]
     // MARK: - Properties
     private let host: String
     private var path: String
     private var method: HTTPMethod
-    private var parameters: Parameters
-    private var headersDict: Headers = [:]
+    private var parameters: [Parameters]
+    private var headers: Headers = [:]
     // MARK: - Init
     init(host: String,
          path: String,
          method: HTTPMethod,
-         parameters: Parameters = [:],
-         headers: [HeaderType] = []) {
+         headers: Headers = [:],
+         parameters: [Parameters] = []) {
         self.host = host
         self.path = path
         self.method = method
         self.parameters = parameters
-        self.setupHeaders(with: headers)
+        self.headers = headers
     }
     
     func asURLRequest() -> URLRequest {
@@ -38,49 +37,56 @@ final class BaseRequest {
         let url: URL = components!.url!
         var request: URLRequest = .init(url: url)
         request.httpMethod = method.rawValue
-        headersDict.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
+        headers.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
         if !parameters.isEmpty {
-            request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
-        }
-        return request
-    }
-    
-    private func setupHeaders(with headersEnum: [HeaderType]) {
-        headersEnum.forEach {
-            switch $0 {
-            case .authorization(let token):
-                self.headersDict[HeadersConstant.authorization] = "Bearer \(token)"
-            case .contentType:
-                self.headersDict[HeadersConstant.contentType] = "application/json"
-            case .accept:
-                self.headersDict[HeadersConstant.accept] = "application/vnd.github+json"
-            case .githubAPIVersion:
-                self.headersDict[HeadersConstant.githubAPIVersion] = "2022-11-28"
+            for parameter in parameters {
+                switch parameter.context {
+                case .body:
+                    request.httpBody = try? parameter.asData()
+                case .url:
+                    components?.queryItems = parameter.asQueryItems()
+                    request.url = components?.url
+                case .plain:
+                    continue
+                }
             }
         }
+        return request
     }
 }
 
 // MARK: - HTTPMethods
-extension BaseRequest {
+extension Request {
     enum HTTPMethod: String {
         case get = "GET"
         case post = "POST"
     }
 }
 
-// MARK: - Headers
-extension BaseRequest {
-    struct HeadersConstant {
-        static let authorization: String = "Authorization"
-        static let contentType: String = "Content-Type"
-        static let accept: String = "Accept"
-        static let githubAPIVersion: String = "X-GitHub-Api-Version"
+// MARK: - Parameters
+extension Request {
+    struct Parameters {
+        let context: Context
+        private var dictionary: [String: Any] = [:]
+        
+        init(context: Context, dictionary: [String: Any] = [:]) {
+            self.context = context
+            self.dictionary = dictionary
+        }
+        
+        func asData() throws -> Data {
+            if !JSONSerialization.isValidJSONObject(dictionary) { throw APIError.invalidJSONObject }
+            return try JSONSerialization.data(withJSONObject: dictionary, options: [])
+        }
+        
+        func asQueryItems() -> [URLQueryItem] {
+            dictionary.map { URLQueryItem(name: $0, value: "\($1)") }
+        }
     }
-    enum HeaderType {
-        case authorization(token: String)
-        case contentType
-        case accept
-        case githubAPIVersion
+}
+
+extension Request.Parameters {
+    enum Context {
+        case url, body, plain
     }
 }

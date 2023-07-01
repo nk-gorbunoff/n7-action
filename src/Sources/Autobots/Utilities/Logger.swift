@@ -10,10 +10,11 @@ import Foundation
 struct Logger {
     // MARK: - Properties
     private let subject: String
-    
+    private let level: LogLevel
     // MARK: - Init
-    init(subject: String) {
+    init(subject: String, level: LogLevel = .main) {
         self.subject = subject
+        self.level = level
     }
     
     // MARK: - Public methods
@@ -31,10 +32,11 @@ struct Logger {
     
     // MARK: - Private methods
     private func log(message: String, kind: Kind, level: LogLevel) {
+        guard level >= self.level else { return }
         let prefix: String
         switch kind {
         case .error: prefix = "⛔️[\(subject)] "
-        case .info: prefix = "ℹ️"
+        case .info: prefix = "ℹ️[\(subject)] "
         case .success: prefix = "✅[\(subject)] "
         }
         let formattedMessage: String = message.replacingOccurrences(of: "\n", with: "\n\(prefix)")
@@ -53,8 +55,17 @@ extension Logger {
 
 // MARK: - LogLevel
 extension Logger {
-    public enum LogLevel {
-        case main
-        case verbose
+    public enum LogLevel: Comparable {
+        case verbose, main
+        
+        fileprivate var priority: Int {
+            switch self {
+            case .verbose: return 0
+            case .main: return 1
+            }
+        }
+        static func < (lhs: Logger.LogLevel, rhs: Logger.LogLevel) -> Bool {
+            lhs.priority < rhs.priority
+        }
     }
 }

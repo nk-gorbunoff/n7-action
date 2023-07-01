@@ -20,11 +20,11 @@ class BaseAPIClient {
     }
     
     // MARK: - Public methods
-    func perform(_ request: BaseRequest) async throws {
+    func perform(_ request: Request) async throws {
        try await performDataTask(with: request)
     }
     
-    func perform<T: Decodable>(_ request: BaseRequest, withOutput: T.Type) async throws -> T {
+    func perform<T: Decodable>(_ request: Request, withResponse: T.Type) async throws -> T {
         let data: Data = try await performDataTask(with: request)
         do {
             return try JSONDecoder().decode(T.self, from: data)
@@ -36,7 +36,7 @@ class BaseAPIClient {
         
     // MARK: - Private methods
     @discardableResult
-    private func performDataTask(with request: BaseRequest) async throws -> Data {
+    private func performDataTask(with request: Request) async throws -> Data {
         let requestDetails: String = getRequestDetails(request)
         do {
             let (data, _) = try await URLSession.shared.data(from: request.asURLRequest())
@@ -48,7 +48,7 @@ class BaseAPIClient {
         }
         
     }
-    private func getRequestDetails(_ request: BaseRequest) -> String {
+    private func getRequestDetails(_ request: Request) -> String {
         let request: URLRequest = request.asURLRequest()
         let url: String = request.url.map { "URL: \($0.absoluteString)" } ?? ""
         let body: String = request.httpBody.map { "\nBody: \(String(data: $0, encoding: .utf8) ?? "")" } ?? ""

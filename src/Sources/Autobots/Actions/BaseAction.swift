@@ -7,9 +7,14 @@
 
 import Foundation
 
-class Worker {
+class BaseAction {
     var logger: Logger
+    
     init() {
         self.logger = .init(subject: "\(Self.self)")
+    }
+    
+    func run(with inputData: InputData) async {
+        ///override
     }
 }

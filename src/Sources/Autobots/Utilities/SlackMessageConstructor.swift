@@ -7,16 +7,9 @@
 
 import Foundation
 
-struct SlackMessageConstructor {    
-    struct PullRequest {
-        let number: String
-        let url: String
-        let title: String
-        let reviewers: String
-        let author: String
-    }
-    
-    func constructBlock(with pr: PullRequest) -> String {
+struct SlackMessageConstructor {
+    // MARK: - pullRequestCreatedMessage
+    func pullRequestCreatedMessage(with pr: PullRequest) -> String {
         """
         [
             {
@@ -31,7 +24,7 @@ struct SlackMessageConstructor {
                 "fields": [
                     {
                         "type": "mrkdwn",
-                        "text": "*Reviewers*:\n\(pr.reviewers)"
+                        "text": "*Reviewers*:\n\(pr.reviewers.joined(separator: "\n"))"
                     },
                     {
                         "type": "mrkdwn",
@@ -44,6 +37,10 @@ struct SlackMessageConstructor {
             }
         ]
         """
+    }
+    // MARK: - pullRequestsListMessage
+    func pullRequestsListMessage(with prs: [PullRequest]) -> String {
+        ""
     }
 }
 

@@ -10,24 +10,21 @@ import Foundation
 @main
 struct Main {
     static func main() async {
-        let logger: Logger = .init(subject: "MAIN")
+        let logger: Logger = .init(subject: #file)
+        let invironment: Environment = ProcessInfo.processInfo.environment
         
-        guard let inputData: InputData = .init(environment: ProcessInfo.processInfo.environment) else {
-            logger.failure("Failed to receive input data: \(ProcessInfo.processInfo.environment)")
+        guard let inputData: InputData = .init(environment: invironment),
+              let triggerEvent: TriggerEvent = .init(rawValue: inputData.githubEventName) else {
+            logger.failure("Failed to receive input data or unknown trigger: \(invironment)")
             return
         }
-//        guard let triggerEvent: TriggerEvent = .init(rawValue: inputData.githubEventName) else {
-//            logger.failure("Unknown trigger event: \(inputData.githubEventName)")
-//            return
-//        }
         
-//        switch triggerEvent {
-//        case .schedule:
-//            logger.success("РАСПИСАНИЕ")
-//        case .createPullRequest:
-//            logger.success("ПУЛЛ РЕКВЕСТИК")
-//        }
-        
-        await SlackPRNotificationWorker().work(with: inputData)
+        switch triggerEvent {
+        case .createPullRequest:
+            await PullRequestNotificationAction().run(with: inputData)
+        case .schedule:
+            break
+        }
     }
+    
 }
