@@ -24,7 +24,14 @@ struct Main {
 //        case .schedule:
 //            await RemindToCheckPullRequestsList().run(with: inputData)
 //        }
-        
-        try? await GithubAPIClient(token: inputData.githubToken, logger: logger).getPullRequestsList(repo: inputData.githubRepository)
+        let client = GithubAPIClient(token: inputData.githubToken, logger: logger)
+        do {
+            let prs = try await client.getPullRequestsList(repo: inputData.githubRepository)
+            for pr in prs {
+                try await client.getReviews(by: pr.number, repo: inputData.githubRepository)
+            }
+        } catch {
+            print("ERRRROR \(error)")
+        }
     }
 }

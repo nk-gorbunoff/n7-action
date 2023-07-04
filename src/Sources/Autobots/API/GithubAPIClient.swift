@@ -62,6 +62,16 @@ final class GithubAPIClient: BaseAPIClient {
         }
     }
     
+    func getReviews(by pr: String, repo: String) async throws {
+        let request: Request = .init(
+            host: host,
+            path: "/repos/\(repo)/pulls/\(pr)/reviews",
+            method: .get
+        )
+        
+        try await perform(request)
+    }
+    
     // MARK: - Private methods
     private func map(_ response: GetPullRequestsListResponse) -> PullRequest? {
         guard let numberInt: Int = response.number,
