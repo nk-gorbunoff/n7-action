@@ -66,7 +66,8 @@ final class GithubAPIClient: BaseAPIClient {
         let request: Request = .init(
             host: host,
             path: "/repos/\(repo)/pulls/\(pr)/reviews",
-            method: .get
+            method: .get,
+            headers: headers
         )
         
         try await perform(request)
