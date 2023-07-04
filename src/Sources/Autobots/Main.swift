@@ -13,8 +13,7 @@ struct Main {
         let logger: Logger = .init(subject: #function)
         let environment: Environment = ProcessInfo.processInfo.environment
         
-        guard let inputData: InputData = .init(environment: environment),
-              let triggerEvent: TriggerEvent = .init(rawValue: inputData.githubEventName) else {
+        guard let inputData: InputData = .init(environment: environment) else {
             logger.failure("Failed to receive input data or unknown trigger: \(environment)")
             return
         }
