@@ -17,6 +17,7 @@
 		4B3AA4782A4EC8D100159E13 /* BaseAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3AA4772A4EC8D100159E13 /* BaseAction.swift */; };
 		4B3AA47A2A4F27BB00159E13 /* SlackUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3AA4792A4F27BB00159E13 /* SlackUser.swift */; };
 		4B3AA47E2A4F29F700159E13 /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3AA47D2A4F29F700159E13 /* PullRequest.swift */; };
+		4B3AA4822A5031FE00159E13 /* CheckPRRemindAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3AA4812A5031FE00159E13 /* CheckPRRemindAction.swift */; };
 		4B6660A62A4B1DC900D14537 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6660A52A4B1DC900D14537 /* BaseResponse.swift */; };
 		4B8AC7142A4AE241003C8A1E /* BaseAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC7132A4AE241003C8A1E /* BaseAPIClient.swift */; };
 		4B8AC7182A4AE2AD003C8A1E /* SlackAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AC7172A4AE2AD003C8A1E /* SlackAPIClient.swift */; };
@@ -45,6 +46,7 @@
 		4B3AA4772A4EC8D100159E13 /* BaseAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAction.swift; sourceTree = "<group>"; };
 		4B3AA4792A4F27BB00159E13 /* SlackUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackUser.swift; sourceTree = "<group>"; };
 		4B3AA47D2A4F29F700159E13 /* PullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
+		4B3AA4812A5031FE00159E13 /* CheckPRRemindAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPRRemindAction.swift; sourceTree = "<group>"; };
 		4B6660A52A4B1DC900D14537 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		4B8AC7132A4AE241003C8A1E /* BaseAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPIClient.swift; sourceTree = "<group>"; };
 		4B8AC7172A4AE2AD003C8A1E /* SlackAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackAPIClient.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			children = (
 				4B3AA4772A4EC8D100159E13 /* BaseAction.swift */,
 				4B8AC71A2A4AF9CA003C8A1E /* PullRequestNotificationAction.swift */,
+				4B3AA4812A5031FE00159E13 /* CheckPRRemindAction.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			files = (
 				4BF9DCE32A4994170033CCD8 /* Main.swift in Sources */,
 				4B3AA4782A4EC8D100159E13 /* BaseAction.swift in Sources */,
+				4B3AA4822A5031FE00159E13 /* CheckPRRemindAction.swift in Sources */,
 				4B1687182A4C6E330020F9F3 /* APIError.swift in Sources */,
 				4B3AA47E2A4F29F700159E13 /* PullRequest.swift in Sources */,
 				4B21AC102A4D83EE009D42CA /* PullRequestNotificationAction.swift in Sources */,

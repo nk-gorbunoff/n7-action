@@ -12,7 +12,7 @@ struct Logger {
     private let subject: String
     private let level: LogLevel
     // MARK: - Init
-    init(subject: String, level: LogLevel = .main) {
+    init(subject: String, level: LogLevel = .verbose) {
         self.subject = subject
         self.level = level
     }

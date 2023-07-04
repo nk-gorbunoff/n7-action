@@ -1,5 +1,5 @@
-name: 'PR Manager'
-description: 'фыв'
+name: 'name'
+description: 'description'
 
 inputs:
   slack_bot_auth_token:
@@ -8,12 +8,18 @@ inputs:
   slack_channel_id:
     description: 'The Slack channel id'
     required: true
+  slack_user_group_id:
+    description: 'The Slack user group id'
+    required: true
+  slack_gh_field_id:
+    description: 'The Slack github field if'
+    required: true
   github_token:
     description: 'The GitHub token for accessing the repository'
-    required: true,
+    required: true
   pull_request_number:
     description: 'The PR number from GitHub'
-    required: false,  
+    required: false  
 
 runs:
   using: 'docker'

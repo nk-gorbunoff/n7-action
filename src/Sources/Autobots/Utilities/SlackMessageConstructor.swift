@@ -38,12 +38,27 @@ struct SlackMessageConstructor {
         ]
         """
     }
+        
     // MARK: - pullRequestsListMessage
     func pullRequestsListMessage(with prs: [PullRequest]) -> String {
-        ""
+        var messages: [String] = []
+        for pr in prs {
+            let message = "*PR #\(pr.number)* ждет проверки от:\(pr.reviewers.joined(separator: "\n"))"
+            messages.append(message)
+        }
+        return """
+        [
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": "\(messages.joined(separator: "\n\n"))"
+                }
+            },
+            {
+                "type": "divider"
+            }
+        ]
+        """
     }
 }
-
-
-
-

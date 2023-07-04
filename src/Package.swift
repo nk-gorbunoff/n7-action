@@ -10,10 +10,7 @@ let package = Package(
     targets: [
         .executableTarget(
             name: "Autobots",
-            dependencies: [],
-            resources: [
-                .process("Resources")
-            ]
-            ),
+            dependencies: []
+        )
     ]
 )

@@ -11,6 +11,16 @@ struct PullRequest {
     let number: String
     let url: String
     let title: String
-    let author: String
-    let reviewers: [String]
+    var author: String
+    var reviewers: [String]
+    
+    mutating func tryToRewrite(with slackUsers: [SlackUser]) {
+        for (index, user) in slackUsers.enumerated() {
+            if user.name == author {
+                 author = user.name
+            } else if reviewers.contains(author) {
+                reviewers[index] = user.name
+            }
+        }
+    }
 }

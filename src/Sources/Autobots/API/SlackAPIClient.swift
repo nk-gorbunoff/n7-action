@@ -42,7 +42,18 @@ final class SlackAPIClient: BaseAPIClient {
         try await perform(request)
     }
     
-    func getUsersList(byUserGroup groupID: String) async throws -> [String] {
+    func getUsers(inUserGroup groupID: String, withGithubField fieldId: String) async throws -> [SlackUser] {
+        let userIdList: [String] = try await getUserIdList(inUserGroup: groupID)
+        var users: [SlackUser] = []
+        for id in userIdList {
+            let user: SlackUser? = try await getUser(byID: id, withGithubField: fieldId)
+            user.map { users.append($0) }
+        }
+        return users
+    }
+    
+    // MARK: - Private methods
+    private func getUserIdList(inUserGroup groupID: String) async throws -> [String] {
         let parameters: [Request.Parameters] = [
             .init(context: .url, dictionary: ["usergroup": groupID])
         ]
@@ -58,7 +69,7 @@ final class SlackAPIClient: BaseAPIClient {
         return response.users ?? []
     }
     
-    func getUser(byID userID: String, withGithubField fieldId: String) async throws -> SlackUser? {
+    private func getUser(byID userID: String, withGithubField fieldId: String) async throws -> SlackUser? {
         let parameters: [Request.Parameters] = [
             .init(context: .url, dictionary: ["user": userID])
         ]
@@ -73,7 +84,7 @@ final class SlackAPIClient: BaseAPIClient {
         let response: GetUsersProfileResponse = try await perform(request, withResponse: GetUsersProfileResponse.self)
         guard let name: String = response.profile?.displayName,
               let githubProfile: String = response.profile?.fields?[fieldId]?.value else {
-            return nil
+           return nil
         }
         
         return .init(id: userID, name: name, githubProfile: githubProfile)
@@ -110,4 +121,3 @@ extension SlackAPIClient.GetUsersProfileResponse {
         let value: String?
     }
 }
-
